@@ -1,0 +1,93 @@
+soundcheck is for helping find feedback issues when performing a sound check
+at a sound board by:
+  1) Displaying a spectrogram of audio from the sound board
+     useful for finding feedback frequencies.
+  2) Generating white noise or a specific frequency for the sound board
+     useful for finding feedback frequencies.
+
+soundcheck is currently under development.
+soundcheck is intended to be available for Windows, Linux, and Mac users.
+
+
+Downloads and Websites
+----------------------
+Please see the soundcheck Wiki home page
+at https://github.com/BruceMty/soundcheck/wiki
+
+
+Downloading the Development Tree
+--------------------------------
+Download the sources with git:
+
+  $ git clone https://github.com/BruceMty/soundcheck.git
+
+
+Installing Dependencies
+-----------------------
+A development envirnment and libraries are required.  The following steps
+install requisite dependencies on Fedora 19.
+
+   $ sudo yum update
+   $ sudo yum groupinstall development-tools
+   $ sudo yum install portaudio-devel
+   $ sudo yum install wxGTK-devel
+
+maybe, for alsa:
+   $ sudo yum install libasound-devel
+
+
+Compiling soundcheck
+----------------
+soundcheck builds with the GNU auto tools. The maintainer has
+prevously run automake and autoconf to produce the script
+"configure". This script *should* be able to compile soundcheck
+for your platform. 
+
+You can disable all optimization flags by specifying the
+configure option --with-noopt.
+
+To install on a Linux/MacOS system, use:
+   $ ./configure
+   $ make
+   $ sudo make install
+
+If you do not wish to run sudo, please install soundcheck on linux/MacOS
+under $HOME/local as follows:
+   $ ./configure --prefix=$HOME/local/ --exec-prefix=$HOME/local CPPFLAGS=-I$HOME/local/include/ LDFLAGS=-L$HOME/local/lib/
+   $ make
+   $ install
+
+The following files are installed:
+   bin/soundcheck
+
+
+Installing
+--------------------------------------------------------------
+If you wish to install at default paths, which requires sudo, type this:
+   $ ./configure
+   $ make
+   $ sudo make install
+
+If you wish to install at $HOME/local, which does not require sudo, type this:
+   $ ./configure --prefix=$HOME/local/ --exec-prefix=$HOME/local CPPFLAGS=-I$HOME/local/include/ LDFLAGS=-L$HOME/local/lib/
+   $ make
+   $ install
+
+================================================================
+
+To cross-compile from Fedora 19 to Windows, do the following:
+   1) Set up the mingw cross compiler environment:
+      $ cd src_win; ./CONFIGURE_F19.sh; cd ..
+   2) type "make win32" or "make win64", or to create a windows
+      installer, type "cd src_win; make".
+
+
+Install on ubuntu using apt-get.
+
+Install on Mac using MacPorts:
+
+  $ sudo port install autoconf automake portaudio-devel wxGTK-devel libasound-devel
+
+Note that port installs to /opt/local/bin, so file /etc/paths may need to be updated
+to include /opt/local/bin.
+
