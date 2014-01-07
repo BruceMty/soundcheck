@@ -6,7 +6,7 @@
 
 class MyApp: public wxApp
 {
-    virtual bool OnInit();
+    bool OnInit() override;
 };
 
 class MyFrame: public wxFrame

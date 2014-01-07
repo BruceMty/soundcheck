@@ -7,6 +7,9 @@ AM_LDFLAGS = -static
 SOUNDCHECK_INCS = \
 	libfft.cpp \
 	libfft.h \
+	input_buffer.hpp \
+	portaudio_manager.hpp \
+	fft_manager.hpp \
 	soundcheck.cpp
 
 MAIN_INCS = \

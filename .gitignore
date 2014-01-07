@@ -26,3 +26,5 @@ stamp-h1
 src/main
 src/soundcheck
 src/test
+src/Makefile
+src/Makefile.in
