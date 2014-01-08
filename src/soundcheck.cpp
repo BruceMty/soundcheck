@@ -27,7 +27,7 @@ int main( int argc, char **argv ) {
 
   // initialize singleton resources
   fft_manager_t fft_manager(FFT_EXP_SIZE);
-  input_buffer_t<SIZE> input_buffer();
+  input_buffer_t input_buffer(SIZE);
   portaudio_manager_t portaudio_manager(SAMPLE_RATE, SIZE);
 
   // allow clean termination for CRTL-c
@@ -53,7 +53,7 @@ int main( int argc, char **argv ) {
     input_buffer.apply_han_window();
 
     // perform the transform on d_r to obtain d_r and d_i
-    fft_manager.read(input_buffer.d_r, input_buffer.d_i);
+    fft_manager.apply_fft(input_buffer.d_r, input_buffer.d_i);
 
     // calculate the power vector
     input_buffer.calculate_power();
