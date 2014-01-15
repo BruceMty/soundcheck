@@ -10,6 +10,7 @@ SOUNDCHECK_INCS = \
 	input_buffer.hpp \
 	portaudio_manager.hpp \
 	fft_manager.hpp \
+	input_manager.hpp \
 	soundcheck.cpp
 
 MAIN_INCS = \
@@ -18,10 +19,10 @@ MAIN_INCS = \
 	main.cpp
 
 soundcheck_SOURCES = \
-	$(SOUNDCHECK_INCS) portaudio.h
+	$(SOUNDCHECK_INCS)
 
 main_SOURCES = \
-	$(MAIN_INCS) portaudio.h
+	$(MAIN_INCS)
 
 test_SOURCES = \
 	test.cpp
